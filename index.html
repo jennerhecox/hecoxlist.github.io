@@ -1,4 +1,4 @@
-on<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <link rel="stylesheet" href="style.css">
@@ -13,13 +13,17 @@ on<!DOCTYPE html>
 
   <body>
      <div id="wrapper">
-    <h1>Shopping List 4.0</h1>
-     <input type="text" id="item" name="item" onkeydown = "if (event.keycode == 13) document.getElementById('btnSubmit').click()"/>&nbsp;Name<br><br>
-     <input type="text" id="cost" name="cost" />&nbsp;Cost<br><br>
-      <input class="button" name="submit" type="button" value="+Add" onclick="addShoppinglist(item.value, cost.value)" />
+    <h1>Shopping List</h1>
+     <input type="text" id="item" name="item" onkeydown = "if (event.keyCode == 13)
+                        document.getElementById('btnSubmit').click()"/>&nbsp;Name<br><br>
+   <!--  <input type="text" id="cost" name="cost" />&nbsp;Cost<br><br> -->
+      <input class="button" id="btnSubmit" name="submit" type="button" value="+Add" onclick="addShoppinglist(item.value)" />
   <p id="MyList"></p>
    <p id="MyCart"></p>   
    </div>
   </body>
 
 </html>
+
+
+<!--, cost.value   -->

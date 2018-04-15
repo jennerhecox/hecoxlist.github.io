@@ -1,4 +1,3 @@
-
 // Code goes here
 // Jenner Hecox
 // Spring 2018
@@ -9,7 +8,7 @@
 //v 4.0 save cookie
 //v 4.0 read cookie on load and display
 window.onload = function() {
-  alert("Jenner Hecox's listbox on Github");
+  alert("Welcome to Jenner's list");
   populateshoppinglistonload();
    displayShoppinglists();
 };
@@ -35,7 +34,7 @@ var btndelete =  ' <input class="button" name="delete" type="button" value="Remo
 var btnupdate =  ' <input class="button" name="edit" type="button" value="Edit Item" onclick="changeShoppinglist(' + i + ')" />';
 var arrays = shoppinglist[i];
 arrays = "'"+arrays+"'";
-var btnaddcart =  '<label><input name="add" type="checkbox" id="adds" value="Add to Shopping Cart" onclick="addtoshopcart('+arrays+','+ i +')" />Add</label>';
+var btnaddcart =  '<label><input name="add" type="checkbox" id="adds" value="Add to Shopping Cart" onclick="addtoshopcart('+arrays+','+ i +')" /></label>';
 TheRow = '<li>' + shoppinglist[i] + btndelete + ' '  + btnaddcart + '</li>';
 TheList += TheRow;
 }
