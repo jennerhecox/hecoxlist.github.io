@@ -1,3 +1,4 @@
+
 // Code goes here
 // Jenner Hecox
 // Spring 2018
@@ -8,6 +9,7 @@
 //v 4.0 save cookie
 //v 4.0 read cookie on load and display
 window.onload = function() {
+  alert("Jenner Hecox's listbox on Github");
   populateshoppinglistonload();
    displayShoppinglists();
 };
