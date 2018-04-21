@@ -7,6 +7,109 @@
 //In .JS file
 //v 4.0 save cookie
 //v 4.0 read cookie on load and display
+function get(name){
+
+    var url = window.location.search;
+
+    var num = url.search(name);
+
+    var namel = name.length;
+
+    var frontlength = namel+num+1; //length of everything before the value
+
+    var front = url.substring(0, frontlength);
+
+    url = url.replace(front, "");
+
+    num = url.search("&");
+
+    if(num>=0) return url.substr(0,num);
+
+    if(num<0)  return url;
+
+}
+
+//vFinal ShareList via bitly api
+
+function passlist()
+
+{
+
+   var getshorturl=0;
+
+   var login = "o_3iokgmm945";
+
+   var api_key = "R_f2f3c9387a374e3fc6bf4b1ec2c945c4";
+
+   var long_url = "https://jennerhecox.github.io/hecoxlist.github.io/="+ shoppinglist;
+
+  try{
+
+  $.getJSON(
+
+             "https://api-ssl.bitly.com/v3/shorten?callback=?",
+
+              {
+
+             "format": "json",
+
+              "apiKey": api_key,
+
+             "login": login,
+
+              "longUrl": long_url
+
+              },
+
+             function(response)
+
+             {
+
+                getshorturl = 1;
+
+                document.getElementById("sharelist").innerHTML = 'Share List:\n' + response.data.url;
+
+                copyToClipboard(response.data.url);
+
+                // copyToClipboard('sharelist');
+
+                 //alert("ShoppingList URL Copied");
+
+             });
+
+  } catch(err) {
+
+   //alert("Error : "+ err);
+
+    document.getElementById("sharelist").innerHTML = 'Share List:\n' + long_url;
+
+    //copyToClipboard("sharelist");
+
+    copyToClipboard(long_url);
+
+    //alert("ShoppingList URL Copied");
+
+}
+
+}
+
+//vFinal share function
+
+function share()
+
+{
+
+   passlist();
+
+}
+
+//v4.1 prompt message to copy URL
+
+function copyToClipboard(text) {
+
+   window.prompt("Copy & Share List!", text);
+
+}
 window.onload = function() {
   alert("Welcome to Jenner's list");
   populateshoppinglistonload();
@@ -31,15 +134,35 @@ var TheList = "";
 var arrayLength = shoppinglist.length;
 for (var i = 0; i < arrayLength; i++) {
 var btndelete =  ' <input class="button" name="delete" type="button" value="Remove Item" onclick="deleteShoppinglists(' + i + ')" />';
+var btnsharelist = '<input class="button" id="shares" name="shares" type="submit" value="Share Shopping List" onclick="share()" />';
 var btnupdate =  ' <input class="button" name="edit" type="button" value="Edit Item" onclick="changeShoppinglist(' + i + ')" />';
 var arrays = shoppinglist[i];
 arrays = "'"+arrays+"'";
 var btnaddcart =  '<label><input name="add" type="checkbox" id="adds" value="Add to Shopping Cart" onclick="addtoshopcart('+arrays+','+ i +')" /></label>';
 TheRow = '<li>' + shoppinglist[i] + btndelete + ' '  + btnaddcart + '</li>';
 TheList += TheRow;
+
+if (arrayLength > 0)
+
+{
+
+ document.getElementById("MyList").innerHTML = '<ul>' + TheList + '</ul>';
+
+  document.getElementById("sharebutton").innerHTML = btnsharelist;
+
+}else
+
+{
+
+  document.getElementById("MyList").innerHTML = ' ';
+
+  document.getElementById("sharebutton").innerHTML = ' ';
+
+    document.getElementById("sharelist").innerHTML = ' ';
+
 }
-document.getElementById("MyList").innerHTML = 'Shopping List ' + '<br>' + TheList;
-}
+
+}}
 
   function addShoppinglist(item,cost) {
   //v 3.0 declare variable for groc string
@@ -193,7 +316,7 @@ function savecookie()
    var date = new Date();
    //keeps for a year
     date.setTime(date.getTime() + Number(365) * 3600 * 1000);
-   document.cookie = 'konkollist' + "=" + escape(shoppinglist.join(',')) + "; path=/;expires = " + date.toGMTString();
+   document.cookie = 'hecox' + "=" + escape(shoppinglist.join(',')) + "; path=/;expires = " + date.toGMTString();
 }
 
 //In .JS file
