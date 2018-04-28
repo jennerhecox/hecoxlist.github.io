@@ -111,10 +111,19 @@ function copyToClipboard(text) {
 
 }
 window.onload = function() {
-  alert("Welcome to Jenner's list");
+  alert("Welcome to Jenner's movie list");
   populateshoppinglistonload();
    displayShoppinglists();
 };
+function about()
+
+{
+
+    alert("Welcome to Jenner's Movie List. List your favorite movies to share with your frineds and family!!");
+
+
+
+}
 //v 3.1 addtocart empty array
 var addtocart = [];
 
