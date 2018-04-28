@@ -5,7 +5,7 @@ body {background-color: #B0C4DE
 
 h1 {
   font: serif;
-  font-size: 25px;
+  font-size: 30px;
    color: yellow;
   border-style:dotted;
 }
@@ -13,4 +13,20 @@ h1 {
   background-color: gray;
   width: 50%;
   height: 50%;
+}
+#btnSubmit {
+  color: orange;
+  text-shadow: 1px 1px 1px;
+}
+#about {
+  color: orange;
+  text-shadow: 1px 1px 1px
+}
+#sharebutton {
+  color: orange;
+}
+footer {
+     color: yellow;
+     font-size: 12px;
+     border-style:dotted;
 }
