@@ -41,7 +41,7 @@ function passlist()
 
    var api_key = "R_b8f8998749d34b45be869f7357ea07af";
 
-   var long_url = "https://jennerhecox.github.io/hecoxlist.github.io/="+ shoppinglist;
+   var long_url = "https://jennerhecox.github.io/hecoxlist.github.io/index.html?list="+ shoppinglist;
 
   try{
 
